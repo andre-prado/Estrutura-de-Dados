@@ -25,7 +25,7 @@ Continuando o exemplo, tinhamos [1,2].
 Digamos que fazemos push(4), push(8). Como está a pilha? 
 Responda na forma de uma lista na variavel pilha1
 '''
-pilha1=[]
+pilha1 = [1, 2, 4, 8]
 
 '''
 EXERCICIO
@@ -34,21 +34,21 @@ Fazemos push(9),push(8),pop(),push(7),push(6),pop().
 
 Como está a pilha? Responda na variavel pilha2.
 '''
-pilha2=[]
+pilha2 = [9, 7]
 
 '''
 EXERCICIO
 Novamente, começamos com uma pilha vazia.
-E se fizermos 
-push(9),push(8),push(7),push(6),pop(),pop(),pop() ?. 
+E se fizermos
+push(9),push(8),push(7),push(6),pop(),pop(),pop() ?.
 '''
-pilha3=[]
+pilha3 = [9]
 
 
 '''
 EXPLICACAO
-Em python, podemos implementar o conceito de pilha usando uma lista, que têm as funções
-append e pop
+Em python, podemos implementar o conceito de pilha usando uma lista, que têm
+as funções append e pop
 
 Por exemplo:
 
@@ -75,8 +75,11 @@ EXERCICIO
 Crie uma função poe_pilha, que recebe uma pilha e um número
 e coloca o número no topo da pilha
 '''
-def poe_pilha(pilha,numero):
-    pass #tire esse pass e escreva o codigo
+
+
+def poe_pilha(pilha, numero):
+    return pilha.append(numero)
+
 
 '''
 EXERCICIO
@@ -85,8 +88,9 @@ estava no topo e retorna ele
 
 Exemplo: se a pilha era [1,2,3], a pilha deve ficar sendo [1,2] e a função deve retornar 3
 '''
+
 def tira_pilha(pilha):
-    pass #tire esse pass e escreva o codigo
+    
 
 '''
 EXPLICAÇÃO
@@ -707,3 +711,5 @@ def explica_erro(album1,album2):
         print(album1[menor_diferente])
 
 
+if __name__ == "__main__":
+    runTests()
