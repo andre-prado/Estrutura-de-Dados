@@ -89,8 +89,10 @@ estava no topo e retorna ele
 Exemplo: se a pilha era [1,2,3], a pilha deve ficar sendo [1,2] e a função deve retornar 3
 '''
 
+
 def tira_pilha(pilha):
-    
+    return pilha.pop()
+
 
 '''
 EXPLICAÇÃO
@@ -109,7 +111,7 @@ Exemplo:
     File "<stdin>", line 1, in <module>
     IndexError: pop from empty list
 
-Para evitar esse problema, precisamos aprender a verificar se uma pilha está 
+Para evitar esse problema, precisamos aprender a verificar se uma pilha está
 vazia.
 
 Basta ver quantos elementos tem na lista. len faz exatamente isso.
@@ -142,8 +144,12 @@ Faça uma função pilha_vazia que retorna:
      True se a pilha está vazia;
      False se não está
 '''
+
+
 def pilha_vazia(pilha):
-    pass #tire esse pass e escreva o codigo
+    if pilha == []:
+        return True
+    return False
 
 
 '''
@@ -160,35 +166,52 @@ Sua função deve retornar a pilha pronta
 Vou deixar um rascunho pra você começar
 
 def pilha_letras(texto):
-    for letra in texto:                            | cada vez com a variavel 'letra' 
+    for letra in texto:                            | cada vez com a variavel 'letra'
         print(letra)      |  esse código é           sendo uma das letras do texto
         print('ola')      |  executado várias vezes
 
 '''
 
+
 def pilha_letras(texto):
-    for letra in texto: 
-        print(letra)
-        print('ola')
+    pilha = []
+    for letra in texto:
+        if texto != []:
+            pilha.append(letra)
+            fotografa(pilha)
+    return pilha
+
 
 '''
 EXERCICIO
 
 Fazer uma função "menos_o_d". Ela recebe uma string e vai colocando as
 letras uma a uma em uma pilha, como a funcao acima. Porém, quando ela vê uma
-letra d, ao invés de colocar o d, ela faz um pop() na pilha, tirando a ultima letra
-logo antes do d.
+letra d, ao invés de colocar o d, ela faz um pop() na pilha, tirando a ultima
+letra logo antes do d.
 
-Tire uma fotografia sempre que inserir ou retirar uma letra. Não fotografe a pilha vazia
-inicial (mas se surgirem outras no meio da execução, voce pode e deve fotografar)
+Tire uma fotografia sempre que inserir ou retirar uma letra. Não fotografe a
+pilha vazia inicial (mas se surgirem outras no meio da execução, voce pode e
+deve fotografar)
 
 Sua função deve retornar a ultima pilha
 '''
 
+
 def menos_o_d(texto):
-    for letra in texto: 
-        print(letra)
-        print('ola')
+    pilha = []
+    for letra in texto:
+        if letra == 'd' and texto != []:
+            pilha.pop()
+            fotografa(pilha)
+            if pilha != []:
+                fotografa(pilha)
+        if letra != 'd':
+            pilha.append(letra)
+        if pilha != []:
+            fotografa(pilha)
+    return pilha
+
 
 '''
 EXERCICIO: Uma coisa estranha da função menos_o_d, que talvez você tenha notado,
@@ -208,8 +231,8 @@ EXERCICIO
 Estamos quase prontos para fazer o exercicio principal da aula, a função
 'balanceado'.
 
-Primero, vamos fazer uma funcao que verifica se um determinado "abre" 
-encaixa com um "fecha".
+Primero, vamos fazer uma funcao que verifica se um determinado
+"abre" encaixa com um "fecha".
 
 Por exemplo, "(" encaixa com ")", mas não encaixa com "]", "}", nem "(", nem "["
 Por exemplo, "[" encaixa com "]", mas não encaixa com ")", "}", nem "(", nem "["
@@ -218,8 +241,14 @@ Na verdade, "(" só encaixa com ")", "[" só encaixa com "]" e "{" só encaixa c
 Faça uma função encaixa, que recebe duas strings, um "abre" e um "fecha", e retorna
 True se eles encaixam (False se não encaixarem)
 '''
+
+
 def encaixa(abre, fecha):
-    pass #esse pass tb é pra tirar :P
+    lista_abertos = ['[', '(', '{']
+    lista_fechados = [']', ')', '}']
+
+    if abre == lista_fechados[0]:
+        return True
 
 '''
 EXPLICACAO
